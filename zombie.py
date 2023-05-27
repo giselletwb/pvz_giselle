@@ -9,6 +9,7 @@ class Zombie(pygame.sprite.Sprite):
         self.count = 0
         self.float_x = (800.0)
         self.speed = .15
+        self.hp = 100
 
         for i in range(22):
             loc = 'resources/graphics/Zombies/NormalZombie/Zombie/zombie_' + str(i) + '.png'
@@ -38,3 +39,6 @@ class Zombie(pygame.sprite.Sprite):
            self.count = 0
         else:
             self.count += 1
+
+    def take_damage(self, amount):
+        self.hp -= amount

@@ -55,12 +55,14 @@ while True:
     #############
 
     if peashooter.can_shoot(elapsed_time):
-        bullet = Bullet(200, 200)
+        bullet = Bullet(peashooter.get_mouth_x(), peashooter.get_mouth_y())
         bullet_group.add(bullet)
+
+
 
     zombie.update()
     peashooter.update(elapsed_time)
-    bullet_group.update()
+    bullet_group.update(zombie_group)
     sun_group.update(elapsed_time)
 
     #############

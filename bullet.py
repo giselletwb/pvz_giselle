@@ -8,6 +8,18 @@ class Bullet(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (centerx, centery)
         self.speed = 1
+        self.damage = 20
 
-    def update(self):
+    def update(self, enemy_group):
         self.rect.x += self.speed
+
+        for zombie in enemy_group.sprites():
+
+            if pygame.sprite.collide_rect(zombie, self):
+                self.kill()
+                zombie.take_damage(self.damage)
+                print(zombie.hp)
+
+        #if pygame.sprite.spritecollide(self, enemy_group, False):
+           # print('colliding!')
+

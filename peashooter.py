@@ -20,6 +20,12 @@ class Peashooter(pygame.sprite.Sprite):
         self.cooldown = 1000
         self.last_shot = -self.cooldown
 
+    def get_mouth_x(self):
+        return self.rect.centerx + 18
+
+    def get_mouth_y(self):
+        return self.rect.centery - 15
+
 
     def switch_image(self):
         self.image = self.images[self.current_image_index]
@@ -39,8 +45,6 @@ class Peashooter(pygame.sprite.Sprite):
 
 
     def update(self, elapsed_time):
-
-
 
         if self.count >= 5:
 
